@@ -8,7 +8,7 @@ public class hugb {
 		
 		
 		
-		String s = "1001,2";
+		String s = "//;\n1;2";
 		
 		
 		int t = ADD(s);
@@ -24,15 +24,26 @@ public class hugb {
 		if (s.isEmpty())
 			return 0;
 		
+		s = s.substring(2);
+		
 		int total = 0;
 		String neg = "";
 		String nums[] = s.split("\n");
-		for (int i = 0; i < nums.length; i++)
+		int i = nums[0].isEmpty()? 1 : 0;
+		char delimeter = ',';
+		
+		if (i == 0)
 		{
-			
-			String nums2[] = nums[i].split(",");
+			delimeter = s.charAt(0);
+			i = 1;
+		}
+		
+		for (; i < nums.length; i++)
+		{
+			String nums2[] = nums[i].split(Character.toString(delimeter));
 			for (int y = 0; y < nums2.length; y++)
 			{
+				
 				if (Integer.parseInt(nums2[y]) <= 1000)
 					total += Integer.parseInt(nums2[y]);
 				
@@ -50,6 +61,7 @@ public class hugb {
 		if (!neg.isEmpty())
 			throw new Exception("Negatives not allowed:" + neg);
 		return total;
+
 
 
 		
