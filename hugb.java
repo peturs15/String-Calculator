@@ -8,7 +8,7 @@ public class hugb {
 		
 		
 		
-		String s = "1,2,3,4";
+		String s = "1\n2,3";
 		
 		
 		int t = ADD(s);
@@ -25,11 +25,18 @@ public class hugb {
 			return 0;
 		
 		int total = 0;
-		String nums[] = s.split(",");
+		String nums[] = s.split("\n");
 		for (int i = 0; i < nums.length; i++)
 		{
-			total += Integer.parseInt(nums[i]);
+			
+			String nums2[] = nums[i].split(",");
+			for (int y = 0; y < nums2.length; y++)
+			{
+				total += Integer.parseInt(nums2[y]);
+			}
+			
 		}
+		
 		return total;
 
 		
