@@ -8,7 +8,7 @@ public class hugb {
 		
 		
 		
-		String s = "2,-4,3,-5";
+		String s = "1001,2";
 		
 		
 		int t = ADD(s);
@@ -33,7 +33,8 @@ public class hugb {
 			String nums2[] = nums[i].split(",");
 			for (int y = 0; y < nums2.length; y++)
 			{
-				total += Integer.parseInt(nums2[y]);
+				if (Integer.parseInt(nums2[y]) <= 1000)
+					total += Integer.parseInt(nums2[y]);
 				
 				if (Integer.parseInt(nums2[y]) < 0)
 				{
